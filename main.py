@@ -9,9 +9,11 @@ def problem2():
     print ('plop')
 
 def startSolution( pbNumber ):
-    # print 'Running solution for problem #' + pbNumber
-    func_name = 'problem' + self.pbNumber
-    func = getattr( self, func_name )
-    func()
+    print ('Running solution for problem #' + str(pbNumber))
+    func_name = 'problem' + str(pbNumber)
+    globals()[func_name]()
 
-startSolution(1)
+def main():
+    bNumber = input("Which problem do you wish to run?")
+    if pbNumber != "exit":
+        startSolution(pbNumber)

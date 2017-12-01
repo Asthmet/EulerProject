@@ -1,6 +1,17 @@
-def private problem1 ( void )
-    for value in variable:
-        pass
+def problem1():
+    sum = 0
+    for i in range(1000):
+        if ( i%3 == 0 ) or ( i%5 == 0 ):
+            sum += i
+    print ('Result to problem #1 is: ' + str(sum))
 
-def public startSolution ( pbNumber )
-    print 'Running solution for problem #' + pbNumber
+def problem2():
+    print ('plop')
+
+def startSolution( pbNumber ):
+    # print 'Running solution for problem #' + pbNumber
+    func_name = 'problem' + self.pbNumber
+    func = getattr( self, func_name )
+    func()
+
+startSolution(1)

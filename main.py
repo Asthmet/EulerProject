@@ -1,3 +1,17 @@
+# ------------------------------------------------------------------------------
+# Modules imports
+
+import math
+import array
+
+# ------------------------------------------------------------------------------
+# Utility methods
+
+
+
+# ------------------------------------------------------------------------------
+# Problem methods
+
 def problem1():
     # Find the sum of all the multiples of 3 or 5 below 1000.
     result=0
@@ -13,7 +27,7 @@ def problem2():
     a1 = 0
     a2 = 1
     while ( (a1 + a2) < 4000000 ):
-        if (a1 + a2)%2 == 0:
+        if (a1 + a2) % 2 == 0:
             result += a1 +a2
         a2 = a1 + a2
         a1 = a2 - a1
@@ -21,6 +35,27 @@ def problem2():
 
 def problem3():
     # What is the largest prime factor of the number 600851475143 ?
+    maxNumber = 600851475143
+    tabPrime = [2, 3, 5]
+    root =  math.sqrt( maxNumber )
+    for i in range(5, int(float(root))):
+        prime = False
+        if 600851475143 % i == 0: # if max Number is divisible by i
+            for j in tabPrime: # we look in the prime table
+                if i%j == 0 and i != j: # if our i number is divisible by a prime, then it isn't a prime itself
+                    prime = False
+                    break
+                prime = True
+        if prime == True:
+            tabPrime.append(i)
+
+    # The last value in the table should be our answer
+    result = tabPrime[-1]
+    print ('Result to problem #3 is: ' + str(result))
+
+def problem4():
+    # Find the largest palindrome made from the product of two 3-digit numbers.
+    pass
 
 # ------------------------------------------------------------------------------
 # Structural method

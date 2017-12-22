@@ -7,7 +7,13 @@ import array
 # ------------------------------------------------------------------------------
 # Utility methods
 
-
+def isPalindrome( number ):
+    strNumber = str(number)
+    reverseStrNumber = strNumber[::-1]
+    if strNumber == reverseStrNumber:
+        return True
+    else:
+        return False
 
 # ------------------------------------------------------------------------------
 # Problem methods
@@ -55,7 +61,12 @@ def problem3():
 
 def problem4():
     # Find the largest palindrome made from the product of two 3-digit numbers.
-    pass
+    result = 0
+    for n in range(100, 999, 1):
+        for m in range(100, 999, 1):
+            if isPalindrome(n * m) == True and result < (n * m):
+                result = n * m
+    print ('Result to problem #4 is: ' + str(result))
 
 # ------------------------------------------------------------------------------
 # Structural method

@@ -8,25 +8,7 @@ import time
 # ------------------------------------------------------------------------------
 # Utility methods
 
-def isPalindrome( number ):
-    strNumber = str(number)
-    reverseStrNumber = strNumber[::-1]
-    if strNumber == reverseStrNumber:
-        return True
-    else:
-        return False
-
-def multipleAll13( numString ):
-    multiplication = 1
-    if len(numString) != 13:
-        return 0
-    for i in range(13):
-        if numString[i] == 0:
-            multiplication = 0
-            break
-        else:
-            multiplication *= int(numString[i])
-    return multiplication
+import utilities as util
 
 # ------------------------------------------------------------------------------
 # Problem methods
@@ -80,8 +62,9 @@ def problem4():
     result = 0
     for n in range(100, 999, 1):
         for m in range(100, 999, 1):
-            if isPalindrome(n * m) == True and result < (n * m):
+            if util.isPalindrome(n * m) == True and result < (n * m):
                 result = n * m
+
     print ('Result to problem #4 is: ' + str(result))
 
 def problem5():
@@ -152,7 +135,7 @@ def problem8():
 
     for i in range(0, 987):
         # print(completeString[i:i+13])
-        iterSum = multipleAll13(completeString[i:i+13])
+        iterSum = util.multipleAll13(completeString[i:i+13])
         if iterSum > result :
             result = iterSum
 
@@ -179,7 +162,8 @@ def problem10():
     lastMax = 0
     result = 0
     while iteration <= 2000000:
-        print('iteration: ' + str(iteration) + ' - max prime: ' + str(lastMax))
+        if iteration%1000 == 0:
+            print('Iteration: ' + str(iteration) + ' - Max prime: ' + str(lastMax))
         isPrime = True
         for prime in primeTab:
             if prime > math.sqrt( iteration ):
